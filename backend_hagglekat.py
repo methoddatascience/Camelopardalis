@@ -119,7 +119,7 @@ def call_ebay_api(keyword_string):
     from ebaysdk.exception import ConnectionError
     
     try:
-        api = Finding(siteid='EBAY-US', appid="MethodDa-MethodDa-PRD-babd43d69-a4097943", config_file=None)
+        api = Finding(siteid='EBAY-US', appid="<API KEY>", config_file=None)
         response = api.execute('findItemsByKeywords', {'keywords': keyword_string})
         # print(response.dict())
     except ConnectionError as e:
