@@ -16,6 +16,8 @@ from tkinter import ttk
 import backend_hagglekat as bh
 import os, fnmatch
 
+import webbrowser
+
 def get_image():
     #function to get the selected image
     print("get_image")
@@ -36,6 +38,10 @@ def show_hits():
     print(deals_df)
     for rows in range(0,deals_df.shape[0]):
         list1.insert(END, deals_df.iloc[rows,2])
+
+def internet(self):
+    weblink = list1.get(ACTIVE)
+    webbrowser.open(weblink)
 
 #GUI design
 window = Tk() #create a window object
@@ -82,6 +88,7 @@ tkvar.trace('w', change_dropdown)
 #Listbox
 list1 = Listbox(window, height=6, width=100)
 list1.grid(row=6,column=2,rowspan=6,columnspan=2)
+list1.bind( "<Double-Button-1>" , internet )
 
 #Scrollbar
 sb1 = Scrollbar(window)
